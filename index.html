@@ -359,10 +359,8 @@
         <p class="subtitle">Des solutions graphiques pour vos besoins</p>
     </header>
     
-    <!-- Logiciels Section -->
     <section id="logiciels" class="section active">
         <div class="container">
-            <!-- Produit 1 -->
             <div class="product-box" style="animation-delay: 0.1s;">
                 <img src="https://maxonassets.imgix.net/images/Cinema_4D_2024.3_UI.jpg?fm=webp&auto=format,compress&w=1920&h=1080&ar=16:9&fit=clip&crop=faces&q=80" alt="Cinema 4D" class="product-image">
                 <div class="product-content">
@@ -372,7 +370,6 @@
                 </div>
             </div>
             
-            <!-- Produit 2 -->
             <div class="product-box" style="animation-delay: 0.3s;">
                 <img src="https://media.es.wired.com/photos/66a0053696d8b492fa9f9248/16:9/w_1280,c_limit/Photoshop%20IA_%201.png" alt="Photoshop 2025" class="product-image">
                 <div class="product-content">
@@ -382,7 +379,6 @@
                 </div>
             </div>
             
-            <!-- Produit 3 -->
             <div class="product-box" style="animation-delay: 0.5s;">
                 <img src="https://store.bananacomputer.com/cmsAdmin/uploads/1e7ca6fe0a0ab95860f24ef4c3f958ed.png" alt="Photoshop Mac" class="product-image">
                 <div class="product-content">
@@ -392,7 +388,6 @@
                 </div>
             </div>
             
-            <!-- Produit 4 -->
             <div class="product-box" style="animation-delay: 0.7s;">
                 <img src="https://helpx-prod.scene7.com/is/image/HelpxProdLoc/Pr_Essentials-workspace-6?$pjpeg$&jpegSize=300&wid=1920" alt="Adobe premiere pro" class="product-image">
                 <div class="product-content">
@@ -402,7 +397,6 @@
                 </div>
             </div>
             
-            <!-- Produit 5 -->
             <div class="product-box" style="animation-delay: 0.9s;">
                 <img src="https://www.celum.com/en/wp-content/uploads/sites/2/2024/07/illustrator1.png" alt="Adobe Illustrator" class="product-image">
                 <div class="product-content">
@@ -412,7 +406,6 @@
                 </div>
             </div>
             
-            <!-- Produit 6 -->
             <div class="product-box" style="animation-delay: 1.1s;">
                 <img src="https://cdn.mos.cms.futurecdn.net/d64kTYABk4ZzG6g3n7bEbM.jpg" alt="Adobe After Effects" class="product-image">
                 <div class="product-content">
@@ -452,10 +445,8 @@
         </div>
     </section>
     
-    <!-- PSD Section -->
     <section id="psd" class="section">
         <div class="container">
-            <!-- PSD 1 -->
             <div class="product-box" style="animation-delay: 0.1s;">
                 <img src="https://assets.turbologo.com/blog/es/2022/03/15084639/psd-958x575-1.png" alt="PSD pack" class="product-image">
                 <div class="product-content">
@@ -476,25 +467,21 @@
             
 
     <script>
-        // Function to redirect to download link
         function redirectToDownload(url) {
             window.location.href = url;
         }
         
-        // Navigation and section switching
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
             const themeToggle = document.getElementById('theme-toggle');
             const body = document.body;
             
-            // Check for saved theme preference
             if (localStorage.getItem('theme') === 'light') {
                 body.classList.add('light-mode');
                 themeToggle.textContent = '🌙';
             }
             
-            // Theme toggle functionality
             themeToggle.addEventListener('click', function() {
                 body.classList.toggle('light-mode');
                 
@@ -507,29 +494,24 @@
                 }
             });
             
-            // Navigation functionality
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
                     const targetSection = this.getAttribute('data-section');
                     
-                    // Update active nav link
                     navLinks.forEach(navLink => navLink.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Show target section, hide others
                     sections.forEach(section => {
                         if (section.id === targetSection) {
                             section.classList.add('active');
                             
-                            // Reset animation for product boxes
                             const productBoxes = section.querySelectorAll('.product-box');
                             productBoxes.forEach((box, index) => {
                                 box.style.opacity = '0';
                                 box.style.animationDelay = `${0.1 + (index * 0.2)}s`;
                                 
-                                // Force reflow to restart animation
                                 void box.offsetWidth;
                                 
                                 box.style.animationPlayState = 'running';
@@ -541,7 +523,6 @@
                 });
             });
             
-            // Apply staggered animation delays to initial product boxes
             const productBoxes = document.querySelectorAll('.product-box');
             productBoxes.forEach((box, index) => {
                 box.style.animationDelay = `${0.1 + (index * 0.2)}s`;
